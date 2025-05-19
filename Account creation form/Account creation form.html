@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Account</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main>
+        <section class="form-section">
+            <h1>Register Account</h1>
+            <form action="" id="form">
+                <div class="input-div">
+                    <div class="input-holder">
+                        <label id="firstName" for="FirstName">First Name:</label>
+                        <div>
+                            <input class="form-input" id="input-fName" required placeHolder="First Name" name="FirstName" type="text">    
+                        </div>
+                    </div>
+                    <div class="input-holder">
+                        <label for="LastName">Last Name:</label>
+                        <div>
+                            <input class="form-input" id="input-lName" required placeholder="Last Name" name="LastName" type="text">     
+                        </div>
+                    </div>
+                </div>
+                <div class="input-div">
+                    <div class="input-holder">
+                        <label for="Username">Username:</label>
+                        <div>
+                            <input class="form-input" id="input-uName" spellcheck="false" required placeholder="Username" autocomplete="off" name="Username" type="text">
+                        </div>
+                    </div>
+                    <div class="input-holder">
+                        <label for="Password">Password:</label>
+                        <div>
+                            <input class="form-input" required placeholder="Password" autocomplete="off" name="Password" type="password" minlength="8">
+                        </div>
+                    </div>
+                </div>
+                <div class="input-div">
+                    <div class="input-holder">
+                        <label for="Color">Profile Color:</label>
+                        <input value="#a7a7a7" id="input-color" class="color-picker form-input" required name="Color" type="color">
+                    </div>
+                    <div class="input-holder">
+                        <label for="Picture">Profile Picture:</label>
+                        <input id="input-picture" class="image-picker form-input" required name="Picture" type="file" multiple="false" accept="image/*">
+                    </div>
+                </div>
+                <div class="input-div">
+                    <div class="input-holder">
+                        <label for="Country">Country:</label>
+                        <div>
+                            <input class="form-input" id="input-country" required placeholder="Country" name="Country" type="text">
+                        </div>
+                    </div>
+                    <div class="input-holder">
+                        <label for="State">State:</label>
+                        <div>
+                            <input class="form-input" id="input-state" required placeholder="State" name="State" type="text">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </section>
+        <section class="preview-section">
+            <h2>Profile Preview</h2>
+            <div class="preview-profile">
+                <div id="preview-color" class="image-holder">
+                    <div id="preview-picture" class="profile-picture"></div>
+                </div>
+                <div class="preview-div">
+                    <p id="preview-uName" class="username-preview"></p>
+                </div>
+                <div class="preview-div">
+                    <p id="preview-fName" class="name-preview"></p>
+                    <p id="preview-lName" class="name-preview"></p>
+                </div>
+                <div class="preview-div">
+                    <p id="preview-country" class="location-preview"></p>
+                    <p id="preview-state" class="location-preview"></p>
+                </div>
+                <div class="preview-div">
+                    <button class="submit-button" type="submit" form="form" value="submit">Confirm Profile</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        // create Id selectors for the input form section
+        const input_fName = document.getElementById('input-fName');
+        const input_lName = document.getElementById('input-lName');
+        const input_uName = document.getElementById('input-uName');
+        const input_color = document.getElementById('input-color');
+        const input_picture = document.getElementById('input-picture');
+        const input_country = document.getElementById('input-country');
+        const input_state = document.getElementById('input-state');
+
+        // create id selectors for the review section
+        const preview_fName = document.getElementById('preview-fName');
+        const preview_lName = document.getElementById('preview-lName');
+        const preview_uName = document.getElementById('preview-uName');
+        const preview_color = document.getElementById('preview-color');
+        const preview_picture = document.getElementById('preview-picture');
+        const preview_country = document.getElementById('preview-country');
+        const preview_state = document.getElementById('preview-state');
+        
+        // create query selector for all inputs
+        const form_inputs = document.querySelectorAll('.form-input');
+
+        form_inputs.forEach((element) => {
+            element.addEventListener('input', function() {
+                // basic text input auto assign values from form to preview
+                preview_uName.textContent = input_uName.value;
+                preview_fName.textContent = input_fName.value;
+                preview_lName.textContent = input_lName.value;
+                preview_country.textContent = input_country.value;
+                preview_state.textContent = input_state.value;
+
+                // picture upload
+                const image = input_picture.files[0];
+                
+                if (image) {
+                    const imageUrl = URL.createObjectURL(image);
+                    preview_picture.style.backgroundImage = `url('${imageUrl}')`;
+                }
+
+                //
+                const color = input_color.value;
+                preview_color.style.backgroundColor = color;
+
+            });
+        });
+    </script>
+</body>
+</html>
