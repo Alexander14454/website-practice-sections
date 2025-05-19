@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drop Down Practice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+    <link>
+    <style>
+
+        body {
+            background-color: #282828;
+            margin: 0px;
+            font-family: 'Rethink Sans', 'sans';
+            padding-bottom: 10vh;
+        }
+
+        ::selection {
+            color: orange;
+        }
+
+        .contentHolder {
+            background-color: #414141;
+            overflow: hidden;
+            margin-top: 60px;
+            transition: 0.5s ease-in-out;
+        }
+
+        .header {
+            text-align: center;
+            font-size: 50px;
+            color: white;
+            font-weight: 700;
+            transition: 0.5s ease-in-out;
+        }
+
+        .imageHolder {
+            position: relative;
+            height: 25vw;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.5s ease-in-out;
+        }
+
+        .imageElement {
+            height: inherit;
+            width: auto;
+            transition: 0.5s ease-in-out;
+
+        }
+
+        .inputHolder {
+            position: relative;
+            height: fit-content;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            transition: 0.5s ease-in-out;
+        }
+
+        .fileUpload {
+            background-color: orange;
+            width: 400px;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin-top: 30px;
+            border-radius: 5px;
+            color: white;
+            transition: 0.5s ease-in-out;
+            
+        }
+
+        .uploadButton {
+            margin-bottom: 30px;
+            margin-top: 30px;
+            width: 400px;
+            height: 60px;
+            border-radius: 5px;
+            border: none;
+            color: orange;
+            transition: 0.5s ease-in-out;
+        }
+
+        .uploadButton:hover {
+            background-color: orange;
+            color: white;
+            transition: 0.5s ease-in-out;
+        }
+
+        .uploadButton p {
+            font-weight: 700;
+            font-size: 15px;
+            transition: 0.5s ease-in-out;
+        }
+
+
+
+        /* media query for media sized screens */
+        @media only screen and (max-width : 1100px) {
+            .imageHolder {
+                height: 290px;
+            }
+        }
+
+        @media only screen and (max-width : 500px) {
+            .header {
+                font-size: 35px;
+                margin: 20px 0px 20px 0px;
+            }
+
+            .imageHolder {
+                height: 200px;
+            }
+
+            .fileUpload {
+                width: 90%;
+                margin-top: 20px
+            }
+
+            .uploadButton {
+                width: 90%;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+
+
+        }
+    </style>
+</head>
+<body class="body">
+    <div class="contentHolder">
+        <p id="header" class="header">Upload Image</p>
+        <div id="imageHolder" class="imageHolder">
+            <img id="imageElement" class="imageElement" src="" alt="">
+        </div>
+        <div class="inputHolder">
+            <input accept="image/*" id="fileUpload" class="fileUpload" type="file" multiple="false">
+            <button id="uploadButton" class="uploadButton"><p>Upload Image</p></button>
+        </div>
+    </div>
+    <script>
+        // select header
+        const header = document.getElementById('header');
+        // select img element
+        const imageElement = document.getElementById('imageElement');
+        // select file input
+        const imageInput = document.getElementById('fileUpload');
+        // select submit button
+        const uploadButton = document.getElementById('uploadButton');
+
+
+        uploadButton.addEventListener('click', function() {
+            const image = imageInput.files[0];
+
+            // if no image is uploaded, through an alert
+            if (!image) {
+                alert("No image uploaded")
+
+            // if image is uploaded
+            } else {
+                header.textContent = 'Image Uploaded'
+                imageElement.src = URL.createObjectURL(image);
+            }
+            
+        });
+
+    </script>
+</body>
+</html>
