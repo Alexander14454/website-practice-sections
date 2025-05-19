@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drop Down Practice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+    <link>
+    <style>
+
+        body {
+            background-color: #282828;
+            margin: 0px;
+            font-family: 'Rethink Sans', 'sans';
+            padding-bottom: 10vh;
+        }
+
+        /* set custom highlighter color */
+        ::selection {
+            background: #ffb120;
+        }
+
+        .header {
+            position: relative;
+            top: 14px;
+            text-align: center;
+            font-size: 60px;
+            font-weight: 700;
+            color: white;
+            transition: 0.7s ease-in-out;
+        }
+
+        #formDiv {
+            position: relative;
+            top: 2vh;
+            background-color: #414141;
+            height: fit-content;
+            padding-bottom: 40px;
+        }
+
+        .topInputWrapperHolder {
+            position: relative;
+            height: fit-content; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+            transition: 0.7s ease-in-out;
+        }
+
+        .centeringDivTop {
+            height: inherit;
+            width: 70%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+            transition: 0.7s ease-in-out;
+        }
+
+        .inputWrapper {
+            position: relative;
+            background-color: white;
+            height: fit-content;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            padding: 4px 20px 4px 20px;
+            margin: 10px 0px 10px 0px;
+            transition: 0.7s ease-in-out;
+            transition-delay: 0.4s;
+        }
+
+        .inputMiddleWrapper {
+            margin: 0px 10px 0px 10px;
+        }
+
+        .generalInput {
+            position: relative;
+            font-size: 19px;
+            color: grey;
+            border: none;
+            outline: none;
+            background-color: transparent;
+            width: 21.8vw;
+            transition: 0.7s ease-in-out;
+        }
+
+        .bottomInputWrapperHolder {
+            position: relative;
+            height: fit-content;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            transition: 0.7s ease-in-out;
+        }
+
+        .centeringDivBottom {
+            height: inherit;
+            width: 70%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            transition: 0.7s ease-in-out;
+        }
+
+        .messageWrapper {
+            position: relative;
+            height: fit-content;
+            width: 100%;
+            background-color: white;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 8px;
+            margin-bottom: 40px;
+            transition: 0.7s ease-in-out;
+
+        }
+
+        .message {
+            height: 300px;
+            font-family: 'Rethink Sans', 'sans';
+            font-size: 19px;
+            color: grey;
+            border: none;
+            outline: none;
+            margin-top: 4px;
+            width: 98%;
+            min-width: 98%;
+            max-width: 98%;
+            transition: 0.7s ease-in-out;
+            
+        }
+
+        .submitButton {
+            height: 60px;
+            background-color: white;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            font-size: 25px;
+            color: grey;
+            width: 25%;
+            font-weight: 700;
+            transition-duration: 0.3s;
+            display: flex;
+            transition: 0.7s ease-in-out;
+        }
+
+        .submitButton:hover {
+            background-color: orange;
+            color: white;
+        }
+
+        .submitButton:active {
+            background-color: orange;
+        }
+
+        .submitButton p {
+            position: relative;
+            width: 100%;
+            text-align: center;
+            top: -10px;
+            transition: 0.7s ease-in-out;
+        }
+
+        /* styling for completed form input */
+        .completeImage {
+            display: flex; 
+            align-self: center;
+            justify-self: center;
+            height: 130px;
+            width: auto;
+            transition: 0.7s ease-in-out;
+        }
+
+        .completeText {
+            text-align: center;
+            font-size: 30px;
+            font-weight: 700;
+            color: white;
+            transition: 0.7s ease-in-out;
+            padding-top: 50px;
+            transition: 0.7s ease-in-out;
+        }
+
+
+        /* media query for media sized screens */
+        @media only screen and (max-width : 1100px) {
+            .centeringDivTop {
+                flex-direction: column;
+
+            }
+
+            .inputWrapper {
+                width: 100%;
+                overflow: hidden;
+                padding-left: 0px;
+                padding-right: 0px;
+                margin: 5px 0px 5px 0px;
+
+            }
+
+            .generalInput {
+                width: 66vw
+            }
+
+            .message {
+                width: 97%;
+                min-width: 97%;
+                max-width: 97%;
+            }
+
+            .submitButton {
+                font-size: 19px;
+            }
+
+            .submitButton p{
+                top: 0px;
+            }
+
+        }
+
+        @media only screen and (max-width : 600px) {
+
+            .header {
+                font-size: 35px;
+                margin-bottom: 20px;
+            }
+
+            .topInputWrapperHolder {
+                margin-bottom: 10px;
+            }
+
+            .centeringDivTop {
+                height: inherit;
+                width: 85%;
+            }
+
+            .inputWrapper {
+                width: 100%;
+                overflow: hidden;
+                margin: 5px 0px 5px 0px;
+            }
+
+            .generalInput {
+                position: relative;
+                font-size: 17px;
+                color: grey;
+                border: none;
+                outline: none;
+                background-color: transparent;
+                width: 95%;
+            }
+
+            .centeringDivBottom {
+                height: inherit;
+                width: 85%;
+            }
+
+            .messageWrapper {
+                margin-bottom: 15px;
+            }
+
+            .message {
+                height: 230px;
+                font-size: 17px;
+                width: 95%;
+                min-width: 95%;
+                max-width: 95%;
+            }
+
+            .submitButton {
+                height: 40px;
+                font-size: 20px;
+                width: 40%;
+            }
+
+            .submitButton p {
+                position: relative;
+                width: 100%;
+                text-align: center;
+                top: -3px;
+                font-size: 14px;
+            }
+
+        /* styling for completed form input */
+            .completeImage {
+                height: 80px;
+                width: auto;
+            }
+
+            .completeText {
+                padding-top: 20px;
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+<body class="body">
+    <div id="formDiv">
+        <p class="header">Contact Me</p>
+        <div class="topInputWrapperHolder">
+            <div class="centeringDivTop">
+                <div class="inputWrapper">
+                    <input type="text" name="name" placeholder="Full Name" class="generalInput">
+                </div>
+                <div class="inputWrapper inputMiddleWrapper">
+                    <input type="email" name="email" placeholder="Email Address" class="generalInput">
+                </div>
+                <div class="inputWrapper">
+                    <input type="text" name="phone" placeholder="Phone Number" class="generalInput">
+                </div>
+            </div>
+        </div>
+        <div class="bottomInputWrapperHolder">
+            <div class="centeringDivBottom">
+                <div class="messageWrapper">
+                    <textarea name="message" class="message" placeholder="Message"></textarea>
+                </div>
+                <button id="submitButton" class="submitButton"><p>Submit</p></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const formDiv = document.getElementById('formDiv');
+        
+        document.getElementById('submitButton').addEventListener('click', function() {
+            formDiv.style.backgroundColor = 'orange';
+            formDiv.innerHTML = `
+                <p class="header" style="padding-top: 6vh; padding-bottom: 4vh;" >Message Sent!</p>
+                <img class="completeImage" src="check.png" alt="Checkmark image">
+                <p class="completeText">Thank you for contacting me.<br> I will make sure to get back to you soon.</p>
+            `;
+        });
+    </script>
+</body>
+</html>
